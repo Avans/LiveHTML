@@ -3,11 +3,15 @@
 </head>
 
 <body>
-  {{> hello}}
+  <h1>Websites Bouwen 1</h1>
+  {{> editor}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="editor">
+  <div id="html" class="editor">
+  	&lt;hr&gt;
+  </div>
+  
+  <iframe class="preview"></iframe>
+  
 </template>

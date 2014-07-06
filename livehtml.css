@@ -1,1 +1,35 @@
-/* CSS declarations go here */
+html, body {
+	height: 100%;
+}
+body {
+	margin-left: 5%;
+}
+.ace_hidden-cursors {
+    opacity:0;
+}
+
+.editor {
+	width: 50%;
+	height: 80%;
+	
+    float: left !important;
+    margin: 0;
+    border: 1px solid rgb(225, 225, 232);
+    box-shadow: none;
+    padding: 8px;
+    font-size: 12px;
+    clear: right;
+
+    background-color: #f7f7f9 !important;
+    line-height: 20px !important;
+
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+iframe {
+	width: 45%;
+	border: 1px solid rgb(225, 225, 232);
+	border-left-width: 0;
+	height: 80%;
+}
