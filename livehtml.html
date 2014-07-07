@@ -3,15 +3,24 @@
 </head>
 
 <body>
-  <h1>Websites Bouwen 1</h1>
-  {{> editor}}
+ {{> start}}
 </body>
 
-<template name="editor">
+<template name="start">
+  <h1>Websites Bouwen 1</h1>
   <div id="html" class="editor">
-  	&lt;hr&gt;
   </div>
-  
+
   <iframe class="preview"></iframe>
-  
+
+  {{#if me.isTeacher}}
+    <h1>Overview</h1>
+    {{#each students}}
+      {{> student }}
+    {{/each}}
+  {{/if}}
+</template>
+
+<template name="student">
+    <iframe id="iframe_{{this._id}}"></iframe>{{foo}}
 </template>

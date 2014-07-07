@@ -11,7 +11,7 @@ body {
 .editor {
 	width: 50%;
 	height: 80%;
-	
+
     float: left !important;
     margin: 0;
     border: 1px solid rgb(225, 225, 232);
@@ -27,7 +27,7 @@ body {
     background-position: right top;
 }
 
-iframe {
+iframe.preview {
 	width: 45%;
 	border: 1px solid rgb(225, 225, 232);
 	border-left-width: 0;
