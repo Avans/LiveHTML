@@ -10,7 +10,6 @@ body {
 
 .editor {
 	width: 50%;
-	height: 80%;
 
     float: left !important;
     margin: 0;
@@ -26,6 +25,28 @@ body {
     background-repeat: no-repeat;
     background-position: right top;
 }
+
+#css {
+    height: 20%;
+
+    color: #bc0000;
+    background-image: url(css.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+#html {
+    height: 60%;
+    background-image: url(html.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.ace_scroller {
+    background-color: transparent !important;
+}
+
+
 
 iframe.preview {
 	width: 45%;

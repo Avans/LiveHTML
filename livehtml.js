@@ -8,23 +8,29 @@ me = function() {
 if (Meteor.isClient) {
   Meteor.startup(function () {
 
-      var editor = ace.edit($('.editor')[0]);
+      var editor = ace.edit($('#html')[0]);
       editor.setTheme("ace/theme/chrome");
       editor.getSession().setMode("ace/mode/html");
       editor.setShowPrintMargin(false);
 
+      var css_editor = ace.edit($('#css')[0]);
+      css_editor.setTheme("ace/theme/chrome");
+      css_editor.getSession().setMode("ace/mode/css");
+      css_editor.setShowPrintMargin(false);
+
       var update = function() {
-          var value = editor.getSession().getValue();
+          var html_value = editor.getSession().getValue();
+          var css_value = css_editor.getSession().getValue();
+
+          var html = '<style>'+css_value+'</style>'+html_value;
           var doc = $('iframe.preview').contents()[0];
           doc = doc.open('text/html', 'replace');
-          doc.write(value);
+          doc.write(html);
           doc.close();
 
           if(me() !== undefined)
-              Students.update(me()._id, {$set: {html: value}});
+              Students.update(me()._id, {$set: {html: html_value, css: css_value}});
       };
-      editor.on('change', update);
-      update();
 
       Deps.autorun(function () {
           Meteor.subscribe('activestudents', window.localStorage['student_key'], function() {
@@ -35,10 +41,15 @@ if (Meteor.isClient) {
               }
               Students.update(me()._id, {$set: {idle: false}})
               editor.getSession().setValue(me().html);
+              css_editor.getSession().setValue(me().css);
+
+              editor.on('change', update);
+              css_editor.on('change', update);
+              update();
           })
       });
 
-      $('iframe.preview').height($('.editor').height() + 17);
+      $('iframe.preview').height($('#html').height() + $('#css').height() + 2*17);
   });
 
 
@@ -56,7 +67,7 @@ if (Meteor.isClient) {
           var doc = $('#iframe_'+o._id).contents()[0];
           if(doc) {
               doc = doc.open('text/html', 'replace');
-              doc.write(o.html);
+              doc.write('<style>' + o.css + '</style>' + o.html);
               doc.close();
           }
       });
