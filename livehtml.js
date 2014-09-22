@@ -49,7 +49,7 @@ if (Meteor.isClient) {
           })
       });
 
-      $('iframe.preview').height($('#html').height() + $('#css').height() + 2*17);
+      $('iframe.preview').height($('#html').height() + $('#css').height() + 2*17 + 10);
   });
 
 

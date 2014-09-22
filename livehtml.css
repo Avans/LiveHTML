@@ -27,7 +27,8 @@ body {
 }
 
 #css {
-    height: 20%;
+    height: 35%;
+    margin-bottom: 10px;
 
     color: #bc0000;
     background-image: url(css.png);
@@ -36,7 +37,7 @@ body {
 }
 
 #html {
-    height: 60%;
+    height: 40%;
     background-image: url(html.png);
     background-repeat: no-repeat;
     background-position: right top;
